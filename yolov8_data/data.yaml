@@ -1,0 +1,12 @@
+names:
+- gate
+nc: 1
+roboflow:
+  license: CC BY 4.0
+  project: airsim-drone-racing-lab-gates-ua7be
+  url: https://universe.roboflow.com/javeds-workspace/airsim-drone-racing-lab-gates-ua7be/dataset/1
+  version: 1
+  workspace: javeds-workspace
+test: ../test/images
+train: ../train/images
+val: ../valid/images
