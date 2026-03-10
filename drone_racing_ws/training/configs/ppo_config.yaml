@@ -1,0 +1,36 @@
+environment:
+  dt:              0.02
+  max_episode_sec: 30.0
+  n_gates:         5
+  gate_radius:     0.6
+  gate_pass_dist:  0.5
+  crash_height:    0.15
+  randomize_gates: true
+  use_airsim:      false
+
+ppo:
+  learning_rate:  0.0003
+  n_steps:        2048      # steps per env before update
+  batch_size:     256
+  n_epochs:       10
+  gamma:          0.99
+  gae_lambda:     0.95
+  clip_range:     0.2
+  ent_coef:       0.005     # entropy bonus (encourages exploration)
+  vf_coef:        0.5
+  max_grad_norm:  0.5
+
+curriculum:
+  success_threshold: 0.75   # advance when 75% of episodes succeed
+  window_size:       100
+
+training:
+  n_envs:           8        # parallel environments (needs 8 CPU cores)
+  total_timesteps:  5000000  # 5M steps ≈ 4-6 hours on good GPU
+  resume_from:      null
+
+logging:
+  log_dir:          training/logs/
+  model_dir:        training/checkpoints/
+  checkpoint_freq:  50000
+  eval_freq:        10000

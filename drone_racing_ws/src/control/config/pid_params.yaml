@@ -1,0 +1,31 @@
+pid_controller:
+  ros__parameters:
+    mass_kg:          0.8       # Your drone's all-up weight in kg
+    hover_thrust:     0.50      # Throttle at hover [0.0 - 1.0]
+    max_tilt_deg:     35.0      # Maximum roll/pitch angle
+
+    # Position PID gains (tune in simulation FIRST)
+    # Start: kp=1.0, ki=0.0, kd=0.3 — increase slowly
+    pos_x_kp: 2.0
+    pos_x_ki: 0.05
+    pos_x_kd: 0.5
+
+    pos_y_kp: 2.0
+    pos_y_ki: 0.05
+    pos_y_kd: 0.5
+
+    pos_z_kp: 3.0
+    pos_z_ki: 0.1
+    pos_z_kd: 0.8
+
+    yaw_kp:   2.0
+    yaw_ki:   0.0
+    yaw_kd:   0.3
+
+    control_freq_hz: 50.0
+
+mavros_bridge:
+  ros__parameters:
+    takeoff_altitude:    1.5    # meters
+    setpoint_rate_hz:    20.0   # MUST be > 2Hz for OFFBOARD mode
+    arm_timeout_sec:     10.0
